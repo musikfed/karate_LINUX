@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "id": "karate_LINUX",
+  "title": "karate_LINUX",
+  "version": "—",
+  "description": "Цель полного книжного макета — около 270 страниц A5. Рабочий план: 16 глав и приложения. Материалы создаются поэтапно с проверкой команд и иллюстраций. Основной практический стенд — Ubuntu 24.04 LTS, особенности Astra Linux рассматриваются отдельно.",
+  "subtitle": null,
+  "tags": [
+    "Git"
+  ],
+  "visibility": "public",
+  "publication": "publish_on_merge",
+  "public_private_approved": false,
+  "display_mode": "diagram",
+  "status": "Черновик — ожидает проверки",
+  "repo_url": "https://github.com/musikfed/karate_LINUX",
+  "screenshots": [],
+  "cover": "vitrine/generated/cover.svg",
+  "cover_type": "schematic-not-screenshot",
+  "screenshot_source": "not-available"
+}
