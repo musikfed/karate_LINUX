@@ -1,0 +1,45 @@
+KARATE LINUX — КНИГА 1 «БЕЛЫЙ ПОЯС»
+ЛАБОРАТОРНАЯ РАБОТА 12 — ПОИСК, КОНВЕЙЕРЫ И ВЫВОД
+
+Среда: собственная учебная Ubuntu 24.04 LTS, Bash.
+Все файлы создаются внутри домашнего каталога; sudo не требуется.
+Не используйте реальные журналы с паролями, адресами и чужими данными.
+
+ПОДГОТОВКА
+Выполните команды ПО ОДНОЙ СТРОКЕ:
+mkdir -p "$HOME/klab/ch12"
+cd "$HOME/klab/ch12"
+printf '%s\n' 'INFO node-a start' 'WARN node-b disk' 'ERROR node-a timeout' 'INFO node-b ready' 'ERROR node-a timeout' 'ERROR node-b denied' > events.log
+cat events.log
+
+ПРАКТИКА
+1. Выведите строки, содержащие ERROR, с номерами строк:
+   grep -nF ERROR events.log
+2. Найдите строки с node-a, не учитывая регистр:
+   grep -niF node-a events.log
+3. Посчитайте строки с ERROR:
+   grep -cF ERROR events.log
+4. Соберите конвейер с сортировкой и подсчётом повторов:
+   grep -F ERROR events.log | sort | uniq -c
+5. Сохраните найденные строки в новый файл через tee:
+   grep -F ERROR events.log | tee errors-only.txt
+6. Убедитесь, что исходный events.log не изменился:
+   wc -l events.log
+   cat events.log
+7. Выполните поиск заведомо отсутствующей строки:
+   grep -F UNAVAILABLE events.log
+   echo $?
+8. Сравните stdout и stderr с помощью двух разных примеров:
+   cat events.log > report.txt
+   cat missing.txt 2> errors.txt
+9. Перечислите, какие команды только читают, а какие создают
+   или изменяют файлы; объясните разницу между > и >>.
+
+ПРОВЕРКА
+Учащийся может объяснить stdin/stdout/stderr, |, grep, sort, uniq,
+tee и правильный смысл кода завершения grep.
+Для отчёта используйте собственные слова; не публикуйте персональные
+данные или открытые готовые ответы.
+
+Зашифрованные ответы и методика проверки запланированы для третьей
+книги «Зелёный пояс — Практика».
