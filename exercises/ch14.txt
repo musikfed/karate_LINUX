@@ -1,0 +1,38 @@
+KARATE LINUX | КНИГА 1 «БЕЛЫЙ ПОЯС»
+ЛАБОРАТОРНАЯ РАБОТА 14 — ПРОЦЕССЫ, PID И SYSTEMD
+
+ЦЕЛЬ
+Найти собственный процесс и безопасно изучить службу и её журнал.
+
+СРЕДА
+Собственная учебная Ubuntu 24.04 LTS, Bash, обычный пользователь.
+Команды изменяют только состояние учебного sleep, службы не трогаем.
+
+1. whoami
+2. echo $$
+3. ps -p $$ -o pid,ppid,user,stat,cmd
+4. sleep 120 &
+5. echo $!
+6. jobs -l
+7. ps -p $! -o pid,stat,cmd
+8. kill -TERM $!
+9. ps -eo pid,user,stat,%cpu,%mem,comm --sort=-%cpu | head
+10. systemctl list-units --type=service --state=running --no-pager
+11. systemctl status systemd-journald --no-pager
+12. systemctl is-active systemd-journald
+13. systemctl is-enabled systemd-journald
+14. journalctl -b -p warning -n 20 --no-pager
+
+ОБЪЯСНИТЕ
+В чём разница между файлом программы и процессом?
+Зачем нужны PID и PPID? Чем active отличается от enabled?
+Почему SIGTERM обычно предпочтительнее SIGKILL?
+Почему в журнале может оказаться меньше записей, чем ожидалось?
+
+КОНТРОЛЬ
+Не останавливайте чужие процессы. Не отключайте и не
+перезапускайте системные службы.
+Сохраните локальный отчёт с наблюдениями, без секретов.
+
+Ответы открытым текстом не публикуются. Шифрование и проверка
+готовых ответов — материал книги 3 «Зелёный пояс: Практика».
