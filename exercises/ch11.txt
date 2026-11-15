@@ -1,0 +1,26 @@
+KARATE LINUX — КНИГА 1 «БЕЛЫЙ ПОЯС»
+ЛАБОРАТОРНАЯ РАБОТА 11 — GNU NANO И VIM
+
+Среда: собственная учебная Ubuntu; обычный пользователь без sudo.
+Работа только с ~/klab/ch11.
+
+1. command -v nano
+2. command -v vim
+3. mkdir -p ~/klab/ch11
+4. cd ~/klab/ch11
+5. printf '%s\n' alpha beta gamma > notes.txt
+6. cp -a notes.txt notes.before
+7. nano notes.txt
+   Добавьте delta, сохраните Ctrl+O, Enter, выйдите Ctrl+X.
+8. diff -u notes.before notes.txt
+9. vim notes.txt
+   Нажмите i, добавьте новую строку, затем Esc и :wq, Enter.
+10. cat -n notes.txt
+11. file -bi notes.txt
+12. cat -A notes.txt
+13. При необходимости прочитайте man nano и vimtutor.
+
+Объясните разницу между Normal и Insert mode в Vim,
+между сохранением (:wq) и выходом без сохранения (:q!).
+Не редактируйте /etc и конфигурации служб в этой работе.
+Открытых ответов нет: шифрованные решения — книга 3.
