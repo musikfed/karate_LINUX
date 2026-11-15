@@ -1,0 +1,23 @@
+KARATE LINUX — КНИГА 1 «БЕЛЫЙ ПОЯС»
+ЛАБОРАТОРНАЯ РАБОТА 09 — ПОЛЬЗОВАТЕЛИ, ГРУППЫ И ИДЕНТИФИКАТОРЫ
+
+Среда: собственная учебная виртуальная машина.
+Создавайте учётные записи только при наличии административного доступа.
+
+1. whoami
+2. id
+3. groups
+4. getent passwd "$USER"
+5. sudo adduser student2
+6. sudo groupadd project89
+7. sudo usermod -aG project89 student2
+8. id student2
+9. getent group project89
+10. С помощью sudo -u student2 создайте тестовый файл в его home.
+    Например:
+    sudo -u student2 touch /home/student2/sample.txt
+11. ls -l /home/student2/sample.txt
+
+Объясните UID, GID, основную и дополнительные группы.
+Не удаляйте и не изменяйте реальные учётные записи.
+Ответы не размещать открытым текстом.
