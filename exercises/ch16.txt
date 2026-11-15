@@ -1,0 +1,68 @@
+KARATE LINUX | КНИГА 1 «БЕЛЫЙ ПОЯС»
+ИТОГОВАЯ ЛАБОРАТОРНАЯ РАБОТА 16 — ЭКЗАМЕН БЕЛОГО ПОЯСА
+
+ЦЕЛЬ
+Подготовить воспроизводимый паспорт учебной Linux-системы и
+объяснить полученные результаты собственными словами.
+
+УСЛОВИЯ
+Собственная учебная Ubuntu 24.04 LTS в виртуальной машине.
+До начала сохраните снимок состояния. Все файлы создавайте в $HOME.
+Нельзя менять системные учётные записи, сети, firewall и рабочие диски.
+
+ЭТАП 1. ПАСПОРТ
+cat /etc/os-release
+uname -r
+whoami
+id
+free -h
+lsblk -f
+findmnt /
+
+ЭТАП 2. ТЕРМИНАЛ И ДОКУМЕНТАЦИЯ
+pwd
+echo "$HOME"
+echo "$SHELL"
+type cd
+man ls
+history 20
+
+ЭТАП 3. ФАЙЛЫ И ПРАВА
+mkdir -p "$HOME/kl-exam/docs"
+printf '%s\n' 'Белый пояс' > "$HOME/kl-exam/docs/result.txt"
+ls -la "$HOME/kl-exam"
+tree -a -L 3 "$HOME/kl-exam"
+touch "$HOME/kl-exam/private.txt"
+chmod 600 "$HOME/kl-exam/private.txt"
+stat -c '%a %U %G %n' "$HOME/kl-exam/private.txt"
+
+ЭТАП 4. ПОИСК И ПЕРЕНАПРАВЛЕНИЕ
+printf '%s\n' 'INFO ready' 'ERROR disk' 'INFO running' 'ERROR dns' > "$HOME/kl-exam/events.log"
+grep -nF ERROR "$HOME/kl-exam/events.log"
+grep -F ERROR "$HOME/kl-exam/events.log" > "$HOME/kl-exam/errors.log"
+wc -l "$HOME/kl-exam/errors.log"
+
+ЭТАП 5. ПАКЕТЫ
+apt-cache policy tree
+apt show tree
+dpkg -l tree
+apt list --upgradable
+
+ЭТАП 6. ПРОЦЕССЫ И СЕТЬ
+echo $$
+ps -p $$ -o pid,ppid,user,stat,cmd
+systemctl --failed --no-pager
+journalctl -b -p warning -n 10 --no-pager
+ip -br address
+ip route
+ss -lnt
+command -v ssh
+
+РЕЗУЛЬТАТ
+Составьте локальный отчёт: начальные условия, команды и вывод,
+полученные наблюдения, объяснение причин, возможные ошибки.
+Отдельно оцените разделы, которые ещё требуют повторения.
+
+Это авторская самопроверка, а не государственная аттестация.
+Открытых ключей ответа не будет. Книга 3 «Зелёный пояс:
+Практика» введёт стандартный способ шифрования ответов.
