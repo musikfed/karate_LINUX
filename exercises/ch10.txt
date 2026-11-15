@@ -1,0 +1,32 @@
+KARATE LINUX — КНИГА 1 «БЕЛЫЙ ПОЯС»
+ЛАБОРАТОРНАЯ РАБОТА 10 — РЕЖИМЫ ДОСТУПА И ACL
+
+Среда: собственная учебная Ubuntu. Запрещено менять права
+рекурсивно в системных каталогах. Работайте только в ~/klab/ch10.
+
+1. mkdir -p ~/klab/ch10
+2. cd ~/klab/ch10
+3. touch plan.txt
+4. ls -l plan.txt
+5. stat -c '%a %n' plan.txt
+6. chmod 600 plan.txt
+7. chmod 640 plan.txt
+8. chmod 644 plan.txt
+9. mkdir -p private
+10. chmod 700 private
+11. ls -ld private
+12. umask
+13. touch new-note.txt
+14. stat -c '%a %n' new-note.txt
+15. Проверьте getfacl и setfacl через command -v.
+    Если нет, установите пакет acl из официального репозитория.
+16. getfacl plan.txt
+17. Если с главы 9 существует учебный пользователь student2:
+    setfacl -m u:student2:r-- plan.txt
+    getfacl plan.txt
+    setfacl -x u:student2 plan.txt
+
+Опишите: владелец/группа/остальные, числа 600/640/644/700,
+значение umask и ограничения ACL mask. Не открывайте доступ
+всем через chmod 777 только ради обхода ошибки.
+Открытых ответов нет: шифрованные решения — книга 3.
