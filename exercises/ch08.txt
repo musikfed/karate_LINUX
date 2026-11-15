@@ -1,0 +1,21 @@
+KARATE LINUX — КНИГА 1 «БЕЛЫЙ ПОЯС»
+ЛАБОРАТОРНАЯ РАБОТА 08 — ФАЙЛЫ, КОПИИ И ССЫЛКИ
+
+Среда: собственная учебная Ubuntu; работа только внутри домашней папки.
+Без sudo. Перед изменением файлов выполняйте pwd и ls.
+
+1. mkdir -p ~/klab/ch08
+2. cd ~/klab/ch08
+3. printf '%s\n' 'План первого дня' 'Проверить копирование' > plan.txt
+4. cp plan.txt plan.bak
+5. mkdir -p docs
+6. mv plan.bak docs/
+7. ln -s docs/plan.bak current-plan.txt
+8. ls -l
+9. file plan.txt current-plan.txt
+10. cat current-plan.txt
+11. При желании: stat plan.txt и ls -li plan.txt docs/plan.bak
+
+Опишите различия обычного файла, каталога и символической ссылки.
+Ответы не размещать в открытом виде. Шифрование ответов — тема
+книги 3 «Зелёный пояс — Практика».
